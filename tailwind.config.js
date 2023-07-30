@@ -9,7 +9,15 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'licorice': '#13070C',
+        'eggplant': '#6B4D57',
+        'rose':'#896A67',
+        'dogwood':'#DDC8C4',
+        'mint-cream':'#EFF9F0'
+      },
+    },
   },
   plugins: [],
 }

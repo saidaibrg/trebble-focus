@@ -1,3 +1,15 @@
+import Navbar from "/components/Navbar";
+import About from "/components/About";
+
 export default function Page() {
-    return <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
+    return (
+    <div>
+      <div className="max-w-2xl min-h-screen mx-auto">
+        <Navbar />
+        <h1 className="mt-8 text-rose text-2xl">[Timer Placeholder]</h1>
+        <About />
+      </div>
+     
+    </div>
+    )
   }
