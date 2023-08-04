@@ -22,5 +22,18 @@ module.exports = {
     },
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [nextui({
+    theme: {
+      light: {
+        layout: {}, // light theme layout tokens
+        colors: {
+          'licorice': '#13070C',
+          'eggplant': '#6B4D57',
+          'rose':'#896A67',
+          'dogwood':'#DDC8C4',
+          'mint-cream':'#EFF9F0'
+        }, // light theme colors
+      }
+    }
+})]
 }
