@@ -1,6 +1,7 @@
 import Navbar from "/components/Navbar";
 import About from "/components/About";
 import RedirectSpotify from "/components/RedirectSpotify";
+import Playlist from "/components/Playlist";
 
 export default function Page() {
     return (
@@ -9,6 +10,7 @@ export default function Page() {
         <Navbar />
         <h1 className="mt-8 text-rose text-2xl">[Timer Placeholder]</h1>
         <RedirectSpotify />
+        <Playlist />
         <About />
       </div>
      

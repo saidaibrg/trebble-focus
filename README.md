@@ -1,5 +1,12 @@
+- [DONE] nextui button for redirection
+
+- redirect URI in the create an app on spotify web development 
+- spotify api functionality for btn redirection
+- server component in the api to have the authorize function 
+- nextui text comp under the btn to display user's playlist names - TEMPORARY 
+
 - Create a client component for playlist drop down 
-- Login button above the playlists
+
 
 - clientid and secret generate
 - Fetch playlist names to the frontend from the user account
