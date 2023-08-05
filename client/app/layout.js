@@ -1,7 +1,7 @@
 // These styles apply to every route in the application
 import './globals.css';
 import {Providers} from "./providers";
-
+import Navbar from '../components/Navbar';
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className='light'>
       <body className="bg-eggplant min-h-screen" >
         <Providers>
+          <Navbar />
           {children}
         </Providers>
       </body>
