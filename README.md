@@ -1,4 +1,7 @@
 - [DONE] nextui button for redirection
+- move the shared components from app/page to app/layout 
+- make the playlist display the same but a new component? useState??
+
 
 - redirect URI in the create an app on spotify web development 
 - spotify api functionality for btn redirection

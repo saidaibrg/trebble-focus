@@ -7,7 +7,14 @@ export default function About() {
 					<span>Instruction Manual for </span> Spotify API
 				</h1>
 				<p className="mt-5 opacity-70 break-words">
-					Overview 
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+					ullamcorper, sapien id ultrices ultricies, dolor sapien
+					ullamcorper nisi, quis ultricies nunc dolor sit amet nisl.
+					Suspendisse potenti. In hac habitasse platea dictumst.
+					Pellentesque habitant morbi tristique senectus et netus et
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+					ullamcorper, sapien id ultrices ultricies, dolor sapien
+					ullamcorper nisi, quis ultricies nunc dolor sit amet nisl. 
 				</p>
 			</div>
 		</div>

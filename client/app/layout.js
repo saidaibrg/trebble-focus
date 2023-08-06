@@ -2,6 +2,8 @@
 import './globals.css';
 import {Providers} from "./providers";
 import Navbar from '../components/Navbar';
+import RedirectSpotify from '../components/RedirectSpotify';
+import Playlist from '../components/Playlist';
 
 export const metadata = {
   title: 'Create Next App',
@@ -14,6 +16,8 @@ export default function RootLayout({ children }) {
       <body className="bg-eggplant min-h-screen" >
         <Providers>
           <Navbar />
+          <h1 className="mt-8 text-rose text-2xl mx-auto max-w-2xl">[Timer Placeholder]</h1>
+          <Playlist />
           {children}
         </Providers>
       </body>
