@@ -2,6 +2,7 @@
 - move the shared components from app/page to app/layout 
 - make the playlist display the same but a new component? useState??
 
+clicking on redirect button will lead to api/auth/signin route
 
 - redirect URI in the create an app on spotify web development 
 - spotify api functionality for btn redirection
@@ -17,3 +18,4 @@
 - Specifying the scope (docs) of the playlists of the logged in user
 - Add instructions on how to use to the placeholder in client
 - Start with fetching top 10 songs for the long break? 
+- Playback of songs is only with premium
