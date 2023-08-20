@@ -84,13 +84,14 @@ const handler = NextAuth({
   ],
   secret: process.env.JWT_SECRET,
   callbacks: {
-    async jwt({ token, account }) {
+    async jwt({ token, account, user }) {
       // Save the access token and refresh token in the JWT on the initial login
-      if (account) {
+      if (account && user) {
         return {
           accessToken: account.access_token,
           accessTokenExpires: Date.now() + account.expires_in * 1000,
           refreshToken: account.refresh_token,
+          user,
         };
       }
       // If access token is not expired, return current token
@@ -102,6 +103,7 @@ const handler = NextAuth({
     },
 
     async session({ session, token }) {
+      session.user = token.user;
       session.accessToken = token.accessToken;
       session.error = token.error;
       return session;
