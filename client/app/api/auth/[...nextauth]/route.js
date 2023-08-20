@@ -69,9 +69,6 @@ async function refreshAccessToken(token) {
 
 // Configure Spotify authentication providers
 // Default routes for signin, signout are: api/auth/signin and api/auth/signout
-// export const authOptions = {
-    
-//   }
 
 // App router specific configuration for NextAuth
 const handler = NextAuth({
@@ -84,6 +81,7 @@ const handler = NextAuth({
   ],
   secret: process.env.JWT_SECRET,
   callbacks: {
+    // Saving the data from the Spotify API response to the JWT
     async jwt({ token, account, user }) {
       // Save the access token and refresh token in the JWT on the initial login
       if (account && user) {
@@ -101,7 +99,7 @@ const handler = NextAuth({
       // If access token is expired, return updated token
       return refreshAccessToken(token);
     },
-
+    // Sending token properties to the client
     async session({ session, token }) {
       session.user = token.user;
       session.accessToken = token.accessToken;

@@ -3,6 +3,8 @@
 import {Button} from '@nextui-org/button'; 
 import {signIn, useSession, signOut} from "next-auth/react"
 
+// CallbackURL - /logged - is the URL to redirect to after a successful sign in
+
 export default function RedirectSpotify() {
   const { data: session, status } = useSession();
   if (status === "authenticated") {
@@ -21,7 +23,7 @@ export default function RedirectSpotify() {
       <div>
         Not signed in yet 
         <br />
-        <Button onClick={() => signIn('spotify')} className='bg-dogwood text-rose mt-6 text-xl'>
+        <Button onClick={() => signIn('spotify', { callbackUrl: "/logged"})} className='bg-dogwood text-rose mt-6 text-xl'>
           Sign in
         </Button>
       </div>
@@ -29,3 +31,4 @@ export default function RedirectSpotify() {
   }
 }
 
+// TODO: better styling for the display of user's data after they are signed in 
