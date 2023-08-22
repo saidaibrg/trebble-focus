@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import {Textarea} from "@nextui-org/react";
+// Session object allows access for the user's Spotify data
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 
@@ -27,8 +27,6 @@ export default function Playlist() {
     }
     fetchPlaylists()
   },[session])
-
-  const text=playlists.map((playlist) => <p key={playlist.id}>{playlist.name}</p>)
   
   return (
     <div className="max-w-2xl text-dogwood mt-6 mx-auto">

@@ -18,7 +18,6 @@ export default function RootLayout({ children }) {
             <Providers>
               <Navbar />
               <h1 className="mt-8 text-rose text-2xl mx-auto max-w-2xl">[Timer Placeholder]</h1>
-              <Playlist />
               {children}
             </Providers>
         </NextAuthProvider>
