@@ -3,7 +3,6 @@ import './globals.css';
 import {Providers} from "./providers";
 import { NextAuthProvider } from './api/provider';
 import Navbar from '../components/Navbar';
-import Playlist from '../components/Playlist';
 
 export const metadata = {
   title: 'Create Next App',
@@ -17,7 +16,6 @@ export default function RootLayout({ children }) {
         <NextAuthProvider>
             <Providers>
               <Navbar />
-              <h1 className="mt-8 text-rose text-2xl mx-auto max-w-2xl">[Timer Placeholder]</h1>
               {children}
             </Providers>
         </NextAuthProvider>

@@ -1,9 +1,14 @@
 'use client'
+
 import Playlist from "../../components/Playlist"
+import Countdown from "../../components/Countdown"
 
 export default function Page() {
   return (
-    <Playlist />
+    <div>
+      <Countdown />
+      <Playlist />
+    </div>
   )
 }
 
