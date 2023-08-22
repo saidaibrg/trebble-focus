@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 
 export default function Countdown() {
     const [seconds, setSeconds] = useState(0)
-    const [minutes, setMinutes] = useState(1)
+    const [minutes, setMinutes] = useState(25)
     const [running, setRunning] = useState(false)
 
     useEffect(() => {
@@ -34,6 +34,11 @@ export default function Countdown() {
     const stopTimer=() => {
         setRunning(false)
     }
+    const resetTimer=() => {
+        setRunning(false)
+        setSeconds(0)
+        setMinutes(25)
+    }
 
     return (
     <div>
@@ -46,7 +51,7 @@ export default function Countdown() {
                 <PauseIcon className="h-8 w-8 mt-6 text-licorice" onClick={stopTimer} />
             </button>
             <button>
-                <WrenchIcon className="h-8 w-8 mt-6 text-licorice" />
+                <WrenchIcon className="h-8 w-8 mt-6 text-licorice" onClick={resetTimer} />
             </button>
         </div>
     </div>
