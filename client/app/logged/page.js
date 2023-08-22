@@ -12,27 +12,26 @@ export default function Page() {
   const [token, setToken]= useState('')
   const [playlists, setPlaylists]= useState([])
 
-  useEffect(() => {
-    async function fetchPlaylists() {
-      if (session && session.accessToken) {
-        setToken(session.accessToken)
-        const response=await fetch('https://api.spotify.com/v1/me/playlists', {
-          headers: {
-            Authorization: `Bearer ${session.accessToken}`
-          }
-        })
-        const data=await response.json()
-        setPlaylists(data.items)
-      }
-    }
-    fetchPlaylists()
-  },[session])
+  // useEffect(() => {
+  //   async function fetchPlaylists() {
+  //     if (session && session.accessToken) {
+  //       setToken(session.accessToken)
+  //       const response=await fetch('https://api.spotify.com/v1/me/playlists', {
+  //         headers: {
+  //           Authorization: `Bearer ${session.accessToken}`
+  //         }
+  //       })
+  //       const data=await response.json()
+  //       setPlaylists(data.items)
+  //     }
+  //   }
+  //   fetchPlaylists()
+  // },[session])
 
-  return (
-    <div>
-      access token: {token}
-      {playlists.map((playlist) => <div key={playlist.id}>{playlist.name}</div>)}
-    </div>)
+  // return (
+  //   <div >
+  //     Playlists: {playlists.map((playlist) => <div key={playlist.id}>{playlist.name}</div>)}
+  //   </div>)
 }
 
 
