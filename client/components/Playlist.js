@@ -5,7 +5,7 @@ import React from "react";
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 
-export default function Playlist() {
+export default function Playlist({setView, setPlaylistID}) {
   // In the case of successful authentication, data will be Session object
   // In the case of unsuccessful authentication, data will be null
   const {data: session, status} = useSession();
@@ -33,7 +33,10 @@ export default function Playlist() {
       {
         playlists.map((playlist) => (
           <div key={playlist.id} className="cursor-pointer mt-1 hover:text-mint-cream" >
-            {playlist.name}
+            <button onClick={()=>{
+                setView('songs') 
+                setPlaylistID(playlist.id)
+              }}>{playlist.name}</button>
           </div>)
         )
       }
