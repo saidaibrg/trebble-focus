@@ -9,7 +9,7 @@ export default function Playlist({setView, setPlaylistID}) {
   // In the case of successful authentication, data will be Session object
   // In the case of unsuccessful authentication, data will be null
   const {data: session, status} = useSession();
-  const [token, setToken]= useState('')
+  const [token, setToken]= useState(null)
   const [playlists, setPlaylists]= useState([])
 
   useEffect(() => {
@@ -40,7 +40,8 @@ export default function Playlist({setView, setPlaylistID}) {
           </div>)
         )
       }
-    </div>)
+    </div>
+  )
 
   //className="mx-auto max-w-2xl mt-8 bg-eggplant border-rose text-dogwood text-xl"
 }
