@@ -32,8 +32,10 @@ export default function SongsView({setView, playlistID}) {
 			<div className="pt-4">
 				{songs?.tracks.items.map((song, i) => {
 					return (
-						<div key={song.track.id}>{song.track.name} </div>
-						
+						<div className='flex flex-row m-2'>
+							<img className="h-14 w-14" src= {song.track.album.images[0].url} />
+							<div className='my-4 mx-2' key={song.track.id}>{song.track.name} </div>
+						</div>	
 					)}
 				)}
 			</div>
