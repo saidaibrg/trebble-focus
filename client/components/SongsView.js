@@ -26,8 +26,17 @@ export default function SongsView({setView, playlistID}) {
   
 	return (
 		<div className="max-w-2xl text-dogwood mt-6 mx-auto">
+			{/* Displays selected playlist name */}
 			<span className="text-xl font-medium">{songs?.name} </span>
-			
+			{/* Displays songs in playlist */}
+			<div className="pt-4">
+				{songs?.tracks.items.map((song, i) => {
+					return (
+						<div key={song.track.id}>{song.track.name} </div>
+						
+					)}
+				)}
+			</div>
 			<div>
 				<button onClick={() => setView("playlists")}>
 					<ArrowLeftCircleIcon className="h-8 w-8 mt-6 text-dogwood" />
