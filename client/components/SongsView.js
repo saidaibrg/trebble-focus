@@ -2,6 +2,8 @@
 import {ArrowLeftCircleIcon} from '@heroicons/react/24/solid'
 import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
+import Song from './Song';
+
 
 export default function SongsView({setView, playlistID}) {
 	const {data: session, status} = useSession();
@@ -10,16 +12,16 @@ export default function SongsView({setView, playlistID}) {
 
 	useEffect(() => {
 		async function fetchPlaylist() {
-		if (session && session.accessToken) {
-			setToken(session.accessToken)
-			const response=await fetch(`https://api.spotify.com/v1/playlists/${playlistID}`, {
-			headers: {
-				Authorization: `Bearer ${session.accessToken}`
+			if (session && session.accessToken) {
+				setToken(session.accessToken)
+				const response=await fetch(`https://api.spotify.com/v1/playlists/${playlistID}`, {
+				headers: {
+					Authorization: `Bearer ${session.accessToken}`
+				}
+				})
+				const data=await response.json()
+				setSongs(data)
 			}
-			})
-			const data=await response.json()
-			setSongs(data)
-		}
 		}
 		fetchPlaylist()
 	},[session])
@@ -30,14 +32,10 @@ export default function SongsView({setView, playlistID}) {
 			<span className="text-xl font-medium">{songs?.name} </span>
 			{/* Displays songs in playlist */}
 			<div className="pt-4">
-				{songs?.tracks.items.map((song, i) => {
-					return (
-						<div className='flex flex-row m-2'>
-							<img className="h-14 w-14" src= {song.track.album.images[0].url} />
-							<div className='my-4 mx-2' key={song.track.id}>{song.track.name} </div>
-						</div>	
-					)}
-				)}
+				{songs?.tracks.items.map((song,i) => {
+					return <Song key={song.track.id} track={song.track} />	
+					})
+				}
 			</div>
 			<div>
 				<button onClick={() => setView("playlists")}>
@@ -45,7 +43,6 @@ export default function SongsView({setView, playlistID}) {
 					<p>Playlists</p>
 				</button>
 			</div>
-			
 		</div>
 	);
 }

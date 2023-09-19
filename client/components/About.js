@@ -7,6 +7,7 @@ export default function About() {
 					<span>Instruction Manual for </span> Spotify API
 				</h1>
 				<p className="mt-5 opacity-70 break-words">
+					Active a nearby Spotify device before you begin your work session.
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
 					ullamcorper, sapien id ultrices ultricies, dolor sapien
 					ullamcorper nisi, quis ultricies nunc dolor sit amet nisl.
