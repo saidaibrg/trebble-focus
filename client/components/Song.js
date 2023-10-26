@@ -10,27 +10,45 @@ export default function Song({track}) {
     const [currentSong, setCurrentSong]= useState(null)
 
 
-    async function playSong(track) {
-        setCurrentSong(track.id)
-        setIsSongPlaying(true)
-        if (session && session.accessToken) {
-            setToken(session.accessToken)
-            const response = await fetch("https://api.spotify.com/v1/me/player/play", {
-                method: "PUT",
-                headers: {
-                    Authorization: `Bearer ${session.accessToken}`
-                },
-                body: JSON.stringify({
-                    uris: [track.uri]
+    async function playback(track) {
+        if (isSongPlaying===true) {
+            setIsSongPlaying(false)
+            if (session && session.accessToken) {
+                setToken(session.accessToken)
+                const response = await fetch("https://api.spotify.com/v1/me/player/pause", {
+                    method: "PUT",
+                    headers: {
+                        Authorization: `Bearer ${session.accessToken}`
+                    },
+                    body: JSON.stringify({
+                        uris: [track.uri]
+                    })
                 })
-            })
-            console.log("on play", response.status)
+                console.log("on pause", response.status)
+            }
         }
+        else{
+            setCurrentSong(track.id)
+            setIsSongPlaying(true)
+            if (session && session.accessToken) {
+                setToken(session.accessToken)
+                const response = await fetch("https://api.spotify.com/v1/me/player/play", {
+                    method: "PUT",
+                    headers: {
+                        Authorization: `Bearer ${session.accessToken}`
+                    },
+                    body: JSON.stringify({
+                        uris: [track.uri]
+                    })
+                })
+                console.log("on play", response.status)
+            }
+        }  
     }
 
     return (
-        <div onClick={async () => await playSong(track)} className='grid grid-cols-2 hover:bg-rose hover:cursor-pointer'>
-            <div  className='flex flex-row m-2'>
+        <div onClick={async () => await playback(track)} className='grid grid-cols-2 hover:bg-rose hover:cursor-pointer'>
+            <div className='flex flex-row m-2'>
                 <img className="h-14 w-14" src={track.album.images[0].url} />
                 <p className='my-4 mx-2'>{track.name} </p>
             </div>	

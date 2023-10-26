@@ -42,6 +42,4 @@ export default function Playlist({setView, setPlaylistID}) {
       }
     </div>
   )
-
-  //className="mx-auto max-w-2xl mt-8 bg-eggplant border-rose text-dogwood text-xl"
 }

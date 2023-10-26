@@ -1,5 +1,8 @@
 'use client'
 
+// UI unique for the route: localhost:3000/logged 
+// This file makes the above route publically accessible
+
 import Playlist from "../../components/Playlist"
 import Countdown from "../../components/Countdown"
 import SongsView from "../../components/SongsView"
@@ -8,7 +11,10 @@ import { useState } from "react"
 
 export default function Page() {
   const [playlistID, setPlaylistID]=useState(null)
-  // playlists view (default, shows all playlistw) or songs view (shows songs for a specific playlist)
+
+  // State variable that determines which view to display
+  // Playlists view (default, shows all playlists) 
+  // Songs view (shows songs for a specific playlist)
   const [view, setView]=useState('playlists') 
 
   return (
@@ -22,7 +28,3 @@ export default function Page() {
 }
 
 
-
-
-// UI unique for the route: localhost:3000/logged 
-// This file makes the above route publically accessible
