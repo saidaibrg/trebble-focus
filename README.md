@@ -14,6 +14,11 @@ Observations:
 - Reset timer icon is not intuitive
 
 Tasks: 
+Countdown:
+- Highlight the colors whenever the icon is presed (shading + opacity)
+- Update the icon for the rest
+- Postion to the center rather than lft
+- Change the coloring (?)
 Songsview
 - When the music is playing, the song tab is highlighted 
 - Move the playlist icons from the bottom to the top left corner

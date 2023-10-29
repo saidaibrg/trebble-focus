@@ -1,12 +1,13 @@
 'use client'
 
-import {PlayIcon, PauseIcon, WrenchIcon} from '@heroicons/react/24/solid'
+import {PlayIcon, PauseIcon, ArrowPathIcon} from '@heroicons/react/24/solid'
 import { useEffect, useState } from 'react'
 
 export default function Countdown() {
     const [seconds, setSeconds] = useState(0)
     const [minutes, setMinutes] = useState(25)
     const [running, setRunning] = useState(false)
+    const [buttonEffect, setButtonEffect] = useState(false)
 
     useEffect(() => {
         if(running) {
@@ -45,13 +46,25 @@ export default function Countdown() {
         <h1 className="mt-8 text-licorice font-medium text-6xl mx-auto max-w-2xl"> {minutes} : {seconds < 10 ? "0" + seconds : seconds}</h1>
         <div className="max-w-2xl mx-auto space-x-8">
             <button>
-                <PlayIcon className="h-8 w-8 mt-6 text-licorice" onClick={startTimer} />
+                <PlayIcon className={`${buttonEffect && `animate-ping`} hover:bg-rose h-8 w-8 mt-6 text-licorice rounded-md`}
+                onClick={event => {
+                    startTimer();
+                    setButtonEffect(true);
+              }} />
             </button>
             <button>
-                <PauseIcon className="h-8 w-8 mt-6 text-licorice" onClick={stopTimer} />
+                <PauseIcon className="hover:animate-pulse hover:bg-rose h-8 w-8 mt-6 text-licorice rounded-md" 
+                onClick={event => {
+                    stopTimer();
+                    setButtonEffect(false)
+                }} />
             </button>
             <button>
-                <WrenchIcon className="h-8 w-8 mt-6 text-licorice" onClick={resetTimer} />
+                <ArrowPathIcon className="hover:animate-pulse hover:bg-rose h-8 w-8 mt-6 text-licorice rounded-md" 
+                onClick={event => {
+                    resetTimer(); 
+                    setButtonEffect(false)
+                }} />
             </button>
         </div>
     </div>
